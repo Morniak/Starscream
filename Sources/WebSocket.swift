@@ -530,7 +530,7 @@ open class WebSocket : NSObject, StreamDelegate, WebSocketClient, WSStreamDelega
         }
         request.setValue("\(url.host!):\(port!)", forHTTPHeaderField: headerWSHostName)
         var path = url.path
-        if !path.hasSuffix("/") {
+        if path.isEmpty {
             path += "/"
         }
         if let query = url.query {
